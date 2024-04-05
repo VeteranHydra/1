@@ -1,0 +1,29 @@
+﻿<Page x:Class="UchebPr.PagePrice123"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UchebPr"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="920"
+      Title="PagePrice123">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" Margin="10,10,0,0" Height="47" Width="642" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Label Content='Для того, чтобы увидеть полную информацию, нажмите кнопку "Выгрузить".' Height="40" Width="505" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="14" ></Label>
+            <Button x:Name="BtnLoadData" Content="Выгрузить" Width="100" Height="30" VerticalAlignment="Top" Margin="20,0" FontFamily="Bahnschrift" FontSize="16" Click="BtnLoadData_Click"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="10,70,0,0" Height="100" Width="506" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Label Content="На данный момент в магазине/на складе находится         товаров, на сумму ~         " Width="511" FontFamily="Bahnschrift" FontSize="14"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="357,70,0,0" Height="26" Width="29" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Label x:Name="countKT" Content="-" HorizontalContentAlignment="Center" Width="29" FontFamily="Bahnschrift" FontSize="14"></Label>            
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="510,70,0,0" Height="26" Width="46" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Label x:Name="priceKT" Content="-" HorizontalContentAlignment="Center" Width="46" FontFamily="Bahnschrift" FontSize="14"></Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="555,70,0,0" Height="26" Width="56" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Label Content="рублей." HorizontalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="14" ></Label>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище KoncTovarNEWModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="id_ap" />
+          </Key>
+          <Property Name="id_ap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_kt" Type="int" />
+          <Property Name="id_dep" Type="int" />
+          <Property Name="count_kt" Type="int" />
+        </EntityType>
+        <EntityType Name="Changes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Changer_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Changer_surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Change_date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Change" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="id_dep" />
+          </Key>
+          <Property Name="id_dep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="KancTovari">
+          <Key>
+            <PropertyRef Name="id_kt" />
+          </Key>
+          <Property Name="id_kt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_dep" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" />
+          <Property Name="price" Type="float" />
+          <Property Name="count" Type="int" />
+          <Property Name="ImageTov" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastLogInDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hlbo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__KancTovar__id_de__01142BA1">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="KancTovari" Type="Self.KancTovari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="id_dep" />
+            </Principal>
+            <Dependent Role="KancTovari">
+              <PropertyRef Name="id_dep" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище KoncTovarNEWModelContainer">
+          <EntitySet Name="Application" EntityType="Self.Application" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Changes" EntityType="Self.Changes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KancTovari" EntityType="Self.KancTovari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__KancTovar__id_de__01142BA1" Association="Self.FK__KancTovar__id_de__01142BA1">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="KancTovari" EntitySet="KancTovari" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KoncTovarNEWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="id_ap" />
+          </Key>
+          <Property Name="id_ap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_kt" Type="Int32" />
+          <Property Name="id_dep" Type="Int32" />
+          <Property Name="count_kt" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Changes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Changer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Changer_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Change_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Change" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="id_dep" />
+          </Key>
+          <Property Name="id_dep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KancTovari" Relationship="Self.FK__KancTovar__id_de__01142BA1" FromRole="Department" ToRole="KancTovari" />
+        </EntityType>
+        <EntityType Name="KancTovari">
+          <Key>
+            <PropertyRef Name="id_kt" />
+          </Key>
+          <Property Name="id_kt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_dep" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Double" />
+          <Property Name="count" Type="Int32" />
+          <Property Name="ImageTov" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Department" Relationship="Self.FK__KancTovar__id_de__01142BA1" FromRole="KancTovari" ToRole="Department" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="lastLogInDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hlbo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__KancTovar__id_de__01142BA1">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="KancTovari" Type="Self.KancTovari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="id_dep" />
+            </Principal>
+            <Dependent Role="KancTovari">
+              <PropertyRef Name="id_dep" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Application" EntityType="Self.Application" />
+          <EntitySet Name="Changes" EntityType="Self.Changes" />
+          <EntitySet Name="Department" EntityType="Self.Department" />
+          <EntitySet Name="KancTovari" EntityType="Self.KancTovari" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <AssociationSet Name="FK__KancTovar__id_de__01142BA1" Association="Self.FK__KancTovar__id_de__01142BA1">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="KancTovari" EntitySet="KancTovari" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище KoncTovarNEWModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Application">
+            <EntityTypeMapping TypeName="KoncTovarNEWModel.Application">
+              <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="id_ap" ColumnName="id_ap" />
+                <ScalarProperty Name="id_kt" ColumnName="id_kt" />
+                <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+                <ScalarProperty Name="count_kt" ColumnName="count_kt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Changes">
+            <EntityTypeMapping TypeName="KoncTovarNEWModel.Changes">
+              <MappingFragment StoreEntitySet="Changes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Changer_name" ColumnName="Changer_name" />
+                <ScalarProperty Name="Changer_surname" ColumnName="Changer_surname" />
+                <ScalarProperty Name="Change_date" ColumnName="Change_date" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Department">
+            <EntityTypeMapping TypeName="KoncTovarNEWModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KancTovari">
+            <EntityTypeMapping TypeName="KoncTovarNEWModel.KancTovari">
+              <MappingFragment StoreEntitySet="KancTovari">
+                <ScalarProperty Name="id_kt" ColumnName="id_kt" />
+                <ScalarProperty Name="id_dep" ColumnName="id_dep" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="ImageTov" ColumnName="ImageTov" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="KoncTovarNEWModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="lastLogInDate" ColumnName="lastLogInDate" />
+                <ScalarProperty Name="Hlbo" ColumnName="Hlbo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

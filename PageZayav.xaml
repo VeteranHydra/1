@@ -1,0 +1,56 @@
+﻿<Page x:Class="UchebPr.PageZayav"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UchebPr"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="920"
+      Title="PageZayav">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="360"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Background="Gray" Orientation="Vertical" Grid.Column="1" Grid.ColumnSpan="2">
+            <Label Content="Наименование к/т" Height="24" Width="150"  Margin="5,20,10,0" />
+            <TextBox x:Name="TBNameKT" Height="30" Width="150"  Margin="20,0,20,0" />
+        </StackPanel>
+        <StackPanel Background="Gray" Orientation="Vertical" Grid.Column="3" >
+            <Label Content="Количество, шт" Height="24" Width="150"  Margin="5,20,10,0" />
+            <TextBox x:Name="TBCountKT" Height="30" Width="150"  Margin="20,0,20,0" />
+        </StackPanel>
+
+        <StackPanel Background="Gray" Orientation="Vertical" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1">
+            <Label Content="Наименование к/т" Height="24" Width="150"  Margin="5,20,10,0" />
+            <TextBox x:Name="TBNameKTnew" Height="30" Width="150"  Margin="20,0,20,0" />
+        </StackPanel>
+        <StackPanel Background="Gray" Orientation="Vertical" Grid.Column="3" Grid.Row="1">
+            <Label Content="Количество, шт" Height="24" Width="150"  Margin="5,20,10,0" />
+            <TextBox x:Name="TBCountKTnew" Height="30" Width="150"  Margin="20,0,20,0" />
+        </StackPanel>
+
+        <StackPanel Background="Gray" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="BtnZayavAdd" Content="Заказать" Height="30" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" Click="BtnZayavAdd_Click" />
+            <Button x:Name="BtnClear" Content="Очистить поля" Height="30" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" Click="BtnClear_Click" />
+        </StackPanel>
+
+
+        <StackPanel Background="Gray" Grid.Column="0" Grid.RowSpan="3" >
+            <ListBox x:Name="LBZayav" Height="350" Width="350" Margin="10,10,10,0" SelectionChanged="LBZayav_SelectionChanged"></ListBox>            
+        </StackPanel>
+        <Label Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="Имеется на складе магазина" FontFamily="Bahnschrift" FontSize="16"/>
+        <Label Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Center" Content="Заказать" FontFamily="Bahnschrift" FontSize="16"/>
+    </Grid>
+</Page>
